@@ -1,0 +1,14 @@
+# Create a Dockerfile in your project
+FROM httpd:alpine
+COPY ./index.html /usr/local/apache2/htdocs/
+
+
+
+Then, run the commands to build and run the Docker image:
+
+$ docker build -t my-apache2 .
+$ docker run -dit --name myweb -p 8080:80 my-apache2
+
+
+# mount your local HTML file
+$ docker run -dit --name myweb2 -v "$PWD":/usr/local/apache2/htdocs/ -p 8081:80 my-apache2
