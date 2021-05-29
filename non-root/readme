@@ -1,0 +1,21 @@
+# compare file permission which is created by the following steps
+
+# run container by command
+    docker run -it -v "$(pwd)":/home/manote newlab sh
+
+#inside the container, run command below
+    touch create file-1
+
+# and
+
+# run container by command with -u flag
+#
+    docker run -it -v "$(pwd)":/home/manote -u manote newlab sh
+
+#inside the container, run command below
+    touch create file-2
+    exit  #exit container
+
+# from host prompt, check file permission
+    ls -l file-1 file-2
+
